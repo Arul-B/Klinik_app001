@@ -1,0 +1,42 @@
+<!-- Modal -->
+<div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Data ID</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="/admin/rfid?_method=PUT" method="POST">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="name">ID</label>
+              <input type="text" class="form-control rfid" id="rfid1" name="rfid" placeholder="Enter RFID" required>
+            </div>
+            <div class="form-group">
+              <label for="name">Nama</label>
+              <input type="text" class="form-control name" id="name1" name="name" placeholder="Enter Nama" required>
+            </div>
+            <div class="form-group">
+              <label for="name">Departemen</label>
+              <input type="text" class="form-control dept" id="dept1" name="dept" placeholder="Enter Departemen" required>
+            </div>
+            <div class="form-group">
+              <label for="name">NRP</label>
+              <input type="text" class="form-control nrp" id="nrp1" name="nrp" placeholder="Enter NRP">
+            </div>
+            <div class="form-group">
+              <label for="name">No HP</label>
+              <input type="text" class="form-control no_hp" id="no_hp1" name="no_hp" placeholder="Enter Nomor HP">
+            </div>
+          </div>
+        <div class="modal-footer">
+            <input type="hidden" class="id" name="id">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Update Data</button>
+        </div>
+       </form>
+      </div>
+    </div>
+  </div>

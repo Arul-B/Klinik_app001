@@ -1,0 +1,95 @@
+  <!-- Sidebar -->
+  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+      <div class="sidebar-brand-icon rotate-n-15">
+        <i class="fas fa-stethoscope"></i>
+      </div>
+      <div class="sidebar-brand-text mx-3"> Klinik APP</div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+    <% if(role == 'Admin') {%>
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+      <a class="nav-link" href="/admin/dashboard">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Dashboard</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+      Menu
+    </div>
+
+    <!-- Nav Item - Charts -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseregister" aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        <span>Form Pendaftaran</span></a>
+        <div id="collapseregister" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header"></h6>
+            <a class="collapse-item" href="/admin/register_rfid">Register RFID</a>
+            <a class="collapse-item" href="/admin/register_manual">Register Manual</a>
+          </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Tables -->
+    <li class="nav-item">
+      <a class="nav-link" href="/admin/rfid">
+        <i class="fa fa-id-card" aria-hidden="true"></i>
+        <span>Data RFID</span></a>
+    </li>
+    <!-- Nav Item - Tables -->
+    <li class="nav-item">
+      <a class="nav-link" href="/admin/users">
+        <i class="fa fa-users" aria-hidden="true"></i>
+        <span>Users</span></a>
+    </li>
+    <% }else{ %>
+      <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+      <a class="nav-link" href="/admin/dashboard">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Dashboard</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+      Menu
+    </div>
+
+    <!-- Nav Item - Charts -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseregister" aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        <span>Form Pendaftaran</span></a>
+        <div id="collapseregister" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header"></h6>
+            <a class="collapse-item" href="/admin/register_rfid">Register RFID</a>
+            <a class="collapse-item" href="/admin/register_manual">Register Manual</a>
+          </div>
+        </div>
+    </li>
+    <% } %>
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+      <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+
+  </ul>
+  <!-- End of Sidebar -->

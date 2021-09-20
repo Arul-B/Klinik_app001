@@ -1,0 +1,72 @@
+<%- include('../../partials/header.ejs') %>
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+  <%- include('../../partials/sidebar.ejs') %>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+       
+<%- include('../../partials/navbar.ejs') %>
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+            <!-- Basic Card Example -->
+            <div id="tab" class="card shadow mb-4">
+                <div class="card-body">
+                  <br><br><br><br>
+                    <p id="opo" class="text-center font-weight-bold display-4">Silahkan TAP RFID</p>
+                    <div class="center1">
+                      <span class="display-2"><i class="fa fa-id-card " aria-hidden="true"></i></span>
+                    </div>
+                    <div id="opo"></div>
+                  <br><br><br><br> 
+                </div>
+            </div>
+            <%- include('form_registerRfid.ejs') %>
+        </div>
+
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+     <%- include('../../partials/footer.ejs') %>
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+<%- include('../../partials/logout_modal.ejs') %>
+
+<%- include('../../partials/js.ejs') %>
+<script>
+  $( '#form_rfid ').hide();
+  var socket = io()
+  socket.on('hello', function (data) {
+   console.log(data);
+  })
+  socket.on('tes', function (data) {
+   console.log(data);
+   $( '#tab').hide();
+   $( '#form_rfid' ).show();
+   $('.name').val(data[0].name)
+   $('.rfid').val(data[0].rfid)
+   $('.dept').val(data[0].dept)
+   $('.nrp').val(data[0].nrp)
+   $('.site').val('JIEP')
+   $('.no_hp').val('021 460 2015')
+   //$('.status').val("Positive")
+  })
+</script>

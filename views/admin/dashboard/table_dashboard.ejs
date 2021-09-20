@@ -1,0 +1,86 @@
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Data Registrasi</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <% if (role == 'Admin'){ %>
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">Nama</th>
+                <th scope="col">NRP</th>
+                <th scope="col">Departemen</th>
+                <th scope="col">Status</th>
+                <th scope="col">Gejala</th>
+                <th scope="col">Print</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(let i = 0; i < data.length ; i++){ %>
+                <tr>
+                  <td scope="row"><%= i+1 %></td>
+                  <td><%= data[i].name %></td>
+                  <td><%= data[i].nrp %></td>
+                  <td><%= data[i].dept %></td>
+                  <td>
+
+                    <% if (data[i].status == 'POSITIF') { %>
+                      <a href="#" type="button" class="btn btn-danger" name="positive" data-id="<%= data[i].id %>"><b>Positive</b></a>
+                      <% }else if (data[i].status == 'NEGATIF') {%>
+                      <a href="#" type="button" class="btn btn-info" name="negative" data-id="<%= data[i].id %>"><b>Negative</b></a>
+                    <% }else{ %>
+                      <a href="javascript:void()" type="button" class="btn btn-danger positive" name="positive" data-id="<%= data[i].id %>"><b>Positive</b></a>
+                      |
+                      <a href="javascript:void()" type="button" class="btn btn-info negative" name="negative" data-id="<%= data[i].id %>"><b>Negative</b></a>
+                    <% } %>
+                  </td>
+                  <td>
+                    <% if (data[i].gejala == 'DITEMUKAN') { %>
+                      <a href="#" type="button" class="btn btn-danger" name="ditemukan" data-id="<%= data[i].id %>"><b>Ditemukan</b></a>
+                      <% }else if (data[i].gejala == 'TIDAK DITEMUKAN') {%>
+                      <a href="#" type="button" class="btn btn-info" name="tidak_ditemukan" data-id="<%= data[i].id %>"><b>Tidak ditemukan</b></a>
+                    <% }else{ %>
+                      <a href="javascript:void()" type="button" class="btn btn-danger ditemukan" name="ditemukan" data-id="<%= data[i].id %>"><b>Ditemukan</b></a>
+                      |
+                      <a href="javascript:void()" type="button" class="btn btn-info tidak_ditemukan" name="tidak_ditemukan" data-id="<%= data[i].id %>"><b>Tidak ditemukan</b></a>
+                    <% } %>
+                  </td>
+                  <td>
+                   <a href="/admin/dashboard/<%= data[i].id %>" type="button" class="btn btn-warning btn-circle button-print"><i class="fas fa-print"></i></a>
+                  </td>
+                </tr>
+              <% } %>
+            </tbody>
+          </table>
+        <% }else{ %> 
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">Nama</th>
+                <th scope="col">NRP</th>
+                <th scope="col">Departemen</th>
+                <th scope="col">Print</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(let i = 0; i < data.length ; i++){ %>
+                <tr>
+                  <td scope="row"><%= i+1 %></td>
+                  <td><%= data[i].name %></td>
+                  <td><%= data[i].nrp %></td>
+                  <td><%= data[i].dept %></td>
+                  <td>
+                   <a href="/admin/dashboard/<%= data[i].id %>" type="button" class="btn btn-warning btn-circle button-print"><i class="fas fa-print"></i></a>
+                  </td>
+                </tr>
+              <% } %>
+            </tbody>
+          </table>
+        <% } %>
+      </div>
+    </div>
+  </div>

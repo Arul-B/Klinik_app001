@@ -1,0 +1,42 @@
+  <!-- Modal -->
+  <div class="modal fade" id="edit-modal-users" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Users</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="/admin/users?_method=PUT" method="POST">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="Nama">Nama</label>
+              <input type="text" class="form-control form-control-user name" name="name" placeholder="Input Name" required>
+            </div>
+            <div class="form-group">
+              <label for="Nama">Email</label>
+              <input type="email" class="form-control form-control-user email" name="email" placeholder="Input Email" required>
+            </div>
+            <div class="form-group">
+              <label for="Nama">Password</label>
+              <input type="password" class="form-control form-control-user" name="password" placeholder="Input New Password">
+            </div>
+            <div class="form-group">
+              <label for="jk">Role</label>
+                <select class="form-control role"  name="role" required>
+                  <option>--Choose--</option>
+                  <option>Admin</option>
+                  <option>Register</option>
+                </select>
+            </div>
+          </div>
+        <div class="modal-footer">
+            <input type="hidden" class="id" name="id">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Register Users</button>
+        </div>
+       </form>
+      </div>
+    </div>
+  </div>

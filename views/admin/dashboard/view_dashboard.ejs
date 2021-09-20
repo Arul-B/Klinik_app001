@@ -1,0 +1,72 @@
+<%- include('../../partials/header.ejs') %>
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+  <%- include('../../partials/sidebar.ejs') %>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+       
+<%- include('../../partials/navbar.ejs') %>
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <%- include('../../partials/message.ejs') %>
+          <!-- Page Heading -->
+          <h1 class="h3 mb-4 text-gray-800">Welcome Dashboard</h1>
+          <%- include('card_dashboard.ejs') %>
+          <%- include('table_dashboard.ejs') %>
+        </div>
+
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+     <%- include('../../partials/footer.ejs') %>
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+<%- include('status_modal.ejs') %>
+<%- include('gejala_modal.ejs') %>
+<%- include('../../partials/logout_modal.ejs') %>
+<%- include('../../partials/js.ejs') %>
+<script>
+
+$('#dataTable').on('click', '.positive', function(){
+    let id = $(this).data('id')
+    $('#status-modal').modal('show')
+    $('.id').val(id)
+    $('.status').val("POSITIF")
+  })
+$('#dataTable').on('click', '.negative', function(){
+    let id = $(this).data('id')
+    $('#status-modal').modal('show')
+    $('.id').val(id)
+    $('.status').val("NEGATIF")
+})
+$('#dataTable').on('click', '.ditemukan', function(){
+    let id = $(this).data('id')
+    $('#gejala-modal').modal('show')
+    $('.id').val(id)
+    $('.gejala').val("DITEMUKAN")
+  })
+$('#dataTable').on('click', '.tidak_ditemukan', function(){
+    let id = $(this).data('id')
+    $('#gejala-modal').modal('show')
+    $('.id').val(id)
+    $('.gejala').val("TIDAK DITEMUKAN")
+})
+</script>
